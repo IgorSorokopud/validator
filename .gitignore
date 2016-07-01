@@ -1,0 +1,4 @@
+*.*~
+.idea/
+angular-app/node_modules
+angular-app/vendor
