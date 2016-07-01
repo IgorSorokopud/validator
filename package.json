@@ -1,0 +1,19 @@
+{
+  "name": "validator-form",
+  "version": "0.0.2",
+  "description": "validator for form",
+  "main": "validator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IgorSorokopud/validator.git"
+  },
+  "author": "Igor Sorokopud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IgorSorokopud/validator/issues"
+  },
+  "homepage": "https://github.com/IgorSorokopud/validator#readme"
+}
