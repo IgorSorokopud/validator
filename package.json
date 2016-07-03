@@ -1,8 +1,8 @@
 {
   "name": "validator-form",
-  "version": "0.0.2",
-  "description": "validator for form",
-  "main": "validator.js",
+  "version": "0.0.4",
+  "description": "jQuery validator for form",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

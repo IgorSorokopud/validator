@@ -1,4 +1,4 @@
-module.exports = function() {
+;(function( $ ){
 
     var methods = {
 
@@ -21,7 +21,7 @@ module.exports = function() {
         },
 
         validNumber: function(self) {
-            $(self).on('blur', function () {
+            $(self).on('keyup', function () {
                 var regex =  /^[0-9]?\d+$/,
                     textError = methods.settings.numberTextError;
 
@@ -30,7 +30,7 @@ module.exports = function() {
         },
 
         validEmail: function(self) {
-            $(self).on('blur', function () {
+            $(self).on('change', function () {
                 var regex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i,
                     textError = methods.settings.emailTextError;
 
@@ -39,7 +39,7 @@ module.exports = function() {
         },
 
         validPhone: function(self) {
-            $(self).on('blur', function () {
+            $(self).on('change', function () {
                 var regex = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
                     textError = methods.settings.phoneTextError;
 
@@ -50,21 +50,23 @@ module.exports = function() {
         checkValid: function(self, regex, textError) {
             var buttonSubmit = $(self).parents('form:first').find(methods.settings.buttonSubmit);
 
-            if (!regex.test(self.value)) {
+            if (!regex.test(self.value) && !$(self).hasClass('in-error')) {
                 methods.error(self, textError);
                 buttonSubmit.prop('disabled', true).addClass('is-disabled');
-            } else {
+
+            } else if (regex.test(self.value) && $(self).hasClass('in-error')) {
                 methods.noError(self);
                 buttonSubmit.prop('disabled', false).removeClass('is-disabled');
+
             }
         },
 
         error: function(self, textError) {
-            $(self).after('<span style="color: red" class="is-error">' + textError + '</span>');
+            $(self).addClass('in-error').after('<span style="color: red" class="is-error">' + textError + '</span>');
         },
 
         noError: function(self) {
-            $(self).parent().find('.is-error').remove();
+            $(self).removeClass('in-error').parent().find('.is-error').remove();
         }
     };
 
@@ -74,7 +76,8 @@ module.exports = function() {
             'numberTextError': 'Invalid',
             'emailTextError': 'Invalid',
             'phoneTextError': 'Invalid',
-            'buttonSubmit': ':submit'
+            'buttonSubmit': ':submit',
+            'callback': ''
         }, method);
 
         if (methods[method]) {
@@ -85,4 +88,5 @@ module.exports = function() {
             $.error('validator has no such method: ' + method);
         }
     };
-};
+
+})( jQuery );
