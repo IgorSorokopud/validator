@@ -1,35 +1,26 @@
-;(function( $ ){
+(function ($) {
 
     var methods = {
 
-        init: function() {
-            var selectNumber = $(this).find("[data-error='number']"),
-                selectEmail = $(this).find("[data-error='email']"),
-                selectPhone = $(this).find("[data-error='phone']");
+        init: function () {
 
-            if (selectNumber) {
-                methods.validNumber(selectNumber);
-            }
-
-            if (selectEmail) {
-                methods.validEmail(selectEmail);
-            }
-
-            if (selectPhone) {
-                methods.validPhone(selectPhone);
-            }
+            var checkElement = $(this).find("[data-error]");
+            checkElement.each(function (i, domEle) {
+                var handlerName = $(domEle).data('error');
+                methods[handlerName]($(domEle));
+            });
         },
 
-        validNumber: function(self) {
+        number: function (self) {
             $(self).on('keyup', function () {
-                var regex =  /^[0-9]?\d+$/,
+                var regex = /^[1-9][0-9]*/,
                     textError = methods.settings.numberTextError;
 
                 methods.checkValid(this, regex, textError);
             });
         },
 
-        validEmail: function(self) {
+        email: function (self) {
             $(self).on('change', function () {
                 var regex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i,
                     textError = methods.settings.emailTextError;
@@ -38,7 +29,7 @@
             });
         },
 
-        validPhone: function(self) {
+        phone: function (self) {
             $(self).on('change', function () {
                 var regex = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
                     textError = methods.settings.phoneTextError;
@@ -47,7 +38,7 @@
             });
         },
 
-        checkValid: function(self, regex, textError) {
+        checkValid: function (self, regex, textError) {
             var buttonSubmit = $(self).parents('form:first').find(methods.settings.buttonSubmit);
 
             if (!regex.test(self.value) && !$(self).hasClass('in-error')) {
@@ -57,20 +48,19 @@
             } else if (regex.test(self.value) && $(self).hasClass('in-error')) {
                 methods.noError(self);
                 buttonSubmit.prop('disabled', false).removeClass('is-disabled');
-
             }
         },
 
-        error: function(self, textError) {
+        error: function (self, textError) {
             $(self).addClass('in-error').after('<span style="color: red" class="is-error">' + textError + '</span>');
         },
 
-        noError: function(self) {
+        noError: function (self) {
             $(self).removeClass('in-error').parent().find('.is-error').remove();
         }
     };
 
-    $.fn.validator = function(method) {
+    $.fn.validator = function (method) {
 
         methods.settings = $.extend({
             'numberTextError': 'Invalid',
@@ -89,4 +79,4 @@
         }
     };
 
-})( jQuery );
+})(jQuery);
