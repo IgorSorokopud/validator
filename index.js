@@ -49,6 +49,10 @@
                 methods.noError(self);
                 buttonSubmit.prop('disabled', false).removeClass('is-disabled');
             }
+
+            if (regex.test(self.value) && typeof methods.settings.callback == 'function') {
+                methods.settings.callback(self);
+            }
         },
 
         error: function (self, textError) {
@@ -77,6 +81,8 @@
         } else {
             $.error('validator has no such method: ' + method);
         }
+
+        return this;
     };
 
 })(jQuery);
