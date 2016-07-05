@@ -10,7 +10,7 @@ $('element').validator({
     'emailTextError': 'Invalid',  /* text error */
     'phoneTextError': 'Invalid',
     'buttonSubmit': '.classButton', /* class button which disabled if error */
-    'callback': 'handler'  /* if validation, run function pass arguments first argument current element second argument type validation */
+    'callback': 'handler'  /*  */
 });
 
 function handler(self, type) {
