@@ -10,12 +10,12 @@ $('element').validator({
     'emailTextError': 'Invalid',  /* text error */
     'phoneTextError': 'Invalid',
     'buttonSubmit': '.classButton', /* class button which disabled if error */
-    'callback': 'handler'  /*  */
+    'callback': 'handler'  /* if validation true, run function and return 'this', 'type' */
 });
 
 function handler(self, type) {
-        self /* <input type="number" data-error="number"> */
-        type /* number */
+  self /* <input type="number" data-error="number"> */
+  type /* "number" */
 }
 ````
 
