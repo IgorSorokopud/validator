@@ -21,9 +21,12 @@ function handler(self, type) {
 
 HTML
 =========
+````
 
 <form>
     <input type="number" data-error="number">
     <input type="text" data-error="email">
     <input type="number" data-error="phone">
 </form>
+
+````
