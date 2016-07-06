@@ -60,7 +60,7 @@
         },
 
         noError: function (self) {
-            $(self).removeClass('in-error').parent().find('.is-error').remove();
+            $(self).removeClass('in-error').next('.is-error').remove();
         }
     };
 
