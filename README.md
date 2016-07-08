@@ -6,9 +6,12 @@ Use
 $('element').validator(); /* default */
 
 $('element').validator({
-    'numberTextError': 'Invalid',
-    'emailTextError': 'Invalid',  /* text error */
-    'phoneTextError': 'Invalid',
+    'numberRegexp': /^[1-9][0-9]*/  /* add regexp */
+    'emailRegexp':
+    'phoneRegexp':
+    'numberTextError': 'invalid',
+    'emailTextError': 'invalid',  /* add text error */
+    'phoneTextError': 'invalid',
     'buttonSubmit': '.classButton', /* class button which disabled if error */
     'callback': 'handler'  /* if validation true, run function and return 'this', 'type' */
 });
