@@ -13,7 +13,7 @@
 
         number: function (self) {
             $(self).on('keyup', function () {
-                var regex = /^[1-9][0-9]*/,
+                var regex = methods.settings.numberRegexp,
                     textError = methods.settings.numberTextError;
 
                 methods.checkValid(this, regex, textError);
@@ -22,7 +22,7 @@
 
         email: function (self) {
             $(self).on('change', function () {
-                var regex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i,
+                var regex = methods.settings.emailRegexp,
                     textError = methods.settings.emailTextError;
 
                 methods.checkValid(this, regex, textError);
@@ -31,7 +31,7 @@
 
         phone: function (self) {
             $(self).on('change', function () {
-                var regex = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+                var regex = methods.settings.phoneRegexp,
                     textError = methods.settings.phoneTextError;
 
                 methods.checkValid(this, regex, textError);
@@ -67,11 +67,13 @@
     $.fn.validator = function (method) {
 
         methods.settings = $.extend({
+            'numberRegexp': /^[1-9][0-9]*/,
+            'emailRegexp': /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i,
+            'phoneRegexp': /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
             'numberTextError': 'Invalid',
             'emailTextError': 'Invalid',
             'phoneTextError': 'Invalid',
-            'buttonSubmit': ':submit',
-            'callback': ''
+            'buttonSubmit': ':submit'
         }, method);
 
         if (methods[method]) {
