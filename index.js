@@ -38,6 +38,42 @@
             });
         },
 
+        name: function (self) {
+            $(self).on('change', function () {
+                var regex = methods.settings.nameRegexp,
+                    textError = methods.settings.nameTextError;
+
+                methods.checkValid(this, regex, textError);
+            });
+        },
+
+        password: function (self) {
+            $(self).on('change', function () {
+                var regex = methods.settings.passwordRegexp,
+                    textError = methods.settings.passwordTextError;
+
+                methods.checkValid(this, regex, textError);
+            });
+        },
+
+        date: function (self) {
+            $(self).on('change', function () {
+                var regex = methods.settings.dateRegexp,
+                    textError = methods.settings.dateTextError;
+
+                methods.checkValid(this, regex, textError);
+            });
+        },
+
+        creditCar: function (self) {
+            $(self).on('change', function () {
+                var regex = methods.settings.usernameRegexp,
+                    textError = methods.settings.usernameTextError;
+
+                methods.checkValid(this, regex, textError);
+            });
+        },
+
         checkValid: function (self, regex, textError) {
             var buttonSubmit = $(self).parents('form:first').find(methods.settings.buttonSubmit);
 
@@ -70,9 +106,19 @@
             'numberRegexp': /^[1-9][0-9]*/,
             'emailRegexp': /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i,
             'phoneRegexp': /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
-            'numberTextError': 'Invalid',
-            'emailTextError': 'Invalid',
-            'phoneTextError': 'Invalid',
+            'nameRegexp': /^[a-z0-9_-]{3,16}$/,
+            'passwordRegexp': /^[a-z0-9_-]{6,18}$/,
+            'dateRegexp': /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$/,
+            'creditCarRegexp': /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35d{3})d{11})$/,
+
+            'numberTextError': 'invalid number',
+            'emailTextError': 'invalid email',
+            'phoneTextError': 'invalid phone',
+            'nameTextError': 'invalid name',
+            'passwordTextError': 'invalid password',
+            'dateTextError': 'invalid date',
+            'creditCarTextError': 'Invalid credit cart',
+
             'buttonSubmit': ':submit'
         }, method);
 

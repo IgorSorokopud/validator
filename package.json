@@ -1,6 +1,6 @@
 {
   "name": "validator-form",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "jQuery validator for form",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,9 @@
   },
   "author": "Igor Sorokopud",
   "license": "ISC",
+  "keywords": [
+    "jquery, validator, form"
+  ],
   "bugs": {
     "url": "https://github.com/IgorSorokopud/validator/issues"
   },

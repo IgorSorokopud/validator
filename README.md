@@ -9,9 +9,19 @@ $('element').validator({
     'numberRegexp': /^[1-9][0-9]*/  /* add regexp */
     'emailRegexp':
     'phoneRegexp':
-    'numberTextError': 'invalid',
-    'emailTextError': 'invalid',  /* add text error */
-    'phoneTextError': 'invalid',
+    'nameRegexp':
+    'passwordRegexp':
+    'dateRegexp':
+    'creditCarRegexp':
+
+    'numberTextError': 'invalid number',
+    'emailTextError': 'invalid email',
+    'phoneTextError': 'invalid phone',
+    'nameTextError': 'invalid name',          /* add text error */
+    'passwordTextError': 'invalid password',
+    'dateTextError': 'invalid date',
+    'creditCarTextError': 'Invalid credit cart',
+
     'buttonSubmit': '.classButton', /* class button which disabled if error */
     'callback': 'handler'  /* if validation true, run function and return 'this', 'type' */
 });
@@ -30,6 +40,10 @@ HTML
     <input type="number" data-error="number">
     <input type="text" data-error="email">
     <input type="number" data-error="phone">
+    <input type="text" data-error="name">
+    <input type="number" data-error="password">
+    <input type="number" data-error="date">
+    <input type="number" data-error="creditCar">
 </form>
 
 ````
