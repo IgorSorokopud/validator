@@ -67,8 +67,8 @@
 
         creditCar: function (self) {
             $(self).on('change', function () {
-                var regex = methods.settings.usernameRegexp,
-                    textError = methods.settings.usernameTextError;
+                var regex = methods.settings.creditCarRegexp,
+                    textError = methods.settings.creditCarTextError;
 
                 methods.checkValid(this, regex, textError);
             });
