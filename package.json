@@ -1,6 +1,6 @@
 {
   "name": "validator-form",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "jQuery validator for form",
   "main": "index.js",
   "scripts": {
