@@ -92,7 +92,7 @@
         },
 
         error: function (self, textError) {
-            $(self).addClass('in-error').after('<span style="color: red" class="is-error">' + textError + '</span>');
+            $(self).addClass('in-error').after('<span class="is-error">' + textError + '</span>');
         },
 
         noError: function (self) {
