@@ -1,7 +1,6 @@
 (function ($) {
 
     var methods = {
-
         init: function () {
             var checkElement = $(this).find("[data-error]");
             checkElement.each(function (i, domEle) {
